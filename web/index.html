@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CursorWork v2</title>
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+		<div class="game">
+			<div class="sell"></div>
+			<div class="mine"></div>
+		</div>
+		<div class="sidebar">
+			<div class="sidebar_options">
+				<div class="sidebar_option_info">Info</div>
+				<div class="sidebar_option_list">Player List</div>
+				<div class="sidebar_option_chat">Chat</div>
+			</div>
+			<div class="sidebar_contents">
+				<div class="sidebar_content_info">
+					<div style="font-weight: bold;">Info</div>
+					<div>Name: <span class="name"></span></div>
+					<div>Storage: <span class="storage"></span></div>
+					<div>Power: <span class="power"></span></div>
+					<div>Money: <span class="money"></span></div>
+					<div style="font-weight: bold;">Upgrades</div>
+					<div>Storage: <input class="storage_upgrade" type="number" min="1" placeholder="Amount"></div>
+					<div>Power: <input class="power_upgrade" type="number" min="1" placeholder="Amount"></div>
+					<div><button class="upgrade_button" type="button">Upgrade</button></div>
+					<div style="font-weight: bold;">Account</div>
+					<div>Username: <input type="text" class="username" placeholder="Username"></div>
+					<div>Password: <input type="password" class="password" placeholder="Password"></div>
+					<div><button class="login" type="button">Login/Register</button></div>
+				</div>
+				<div class="sidebar_content_list">
+					<ul class="player_list"></ul>
+				</div>
+				<div class="sidebar_content_chat">
+					<div class="chat_top"><input type="text" class="chat_input" placeholder="Message"> <button type="button" class="send_chat">Send</button></div>
+					<div class="chat_messages"></div>
+				</div>
+			</div>
+		</div>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="js/index.js"></script>
+	</body>
+</html>
