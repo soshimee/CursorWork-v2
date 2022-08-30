@@ -4,6 +4,10 @@
 	font-family: Helvetica, sans-serif;
 }
 
+iframe {
+	border: none;
+}
+
 .game {
 	float: left;
 	width: 800px;
@@ -54,10 +58,11 @@
 	width: 300px;
 	height: 50px;
 	box-shadow: 0 0 1px black;
+	text-align: center;
 }
 
 .sidebar_options > * {
-	margin: 0 10px;
+	margin: 0 5px;
 	line-height: 50px;
 	display: inline-block;
 	cursor: pointer;
@@ -71,6 +76,7 @@
 }
 
 .sidebar_contents > * {
+	display: block;
 	width: calc(100% - 20px);
 	height: calc(100% - 20px);
 }
@@ -92,4 +98,11 @@
 .chat_author {
 	font-weight: bold;
 	margin-right: 8px;
+}
+
+.sidebar_content_changelog > * {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }

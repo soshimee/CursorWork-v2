@@ -4,7 +4,8 @@
 	"description": "The successor to CursorWork classic and v1",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js"
 	},
 	"author": "soshimee",
 	"license": "MIT",

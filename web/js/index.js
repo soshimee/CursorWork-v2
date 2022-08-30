@@ -45,28 +45,28 @@ socket.on("cursor remove", id => {
 });
 
 socket.on("cursor data", (id, data) => {
-	if (data.position) {
+	if (data.position !== undefined) {
 		const cursor = document.querySelector(`.cursor_${id}`);
 		cursor.style.left = data.position[0] + "px";
 		cursor.style.top = data.position[1] + "px";
 	}
-	if (data.name) {
+	if (data.name !== undefined) {
 		const cursorName = document.querySelector(`.cursor_name_${id}`);
 		cursorName.innerText = data.name;
 		if (id === socket.id) document.querySelector(".name").innerText = data.name;
 		document.querySelector(`.list_name_${id}`).innerText = data.name;
 	}
-	if (data.storage) {
+	if (data.storage !== undefined) {
 		const cursorStorage = document.querySelector(`.cursor_storage_${id}`);
 		cursorStorage.innerText = `${formatNumber(data.storage[0])}/${formatNumber(data.storage[1])}`;
 		if (id === socket.id) document.querySelector(".storage").innerText = `${formatNumber(data.storage[0])}/${formatNumber(data.storage[1])}`;
 	}
-	if (data.power) {
+	if (data.power !== undefined) {
 		const cursorPower = document.querySelector(`.cursor_power_${id}`);
 		cursorPower.innerText = formatNumber(data.power);
 		if (id === socket.id) document.querySelector(".power").innerText = formatNumber(data.power);
 	}
-	if (data.money) {
+	if (data.money !== undefined) {
 		const cursorMoney = document.querySelector(`.cursor_money_${id}`);
 		cursorMoney.innerText = `$${formatNumber(data.money)}`;
 		if (id === socket.id) document.querySelector(".money").innerText = `$${formatNumber(data.money)}`;
@@ -142,6 +142,7 @@ onresize();
 document.querySelector(".sidebar_option_info").onclick = () => switchSidebar("info");
 document.querySelector(".sidebar_option_list").onclick = () => switchSidebar("list");
 document.querySelector(".sidebar_option_chat").onclick = () => switchSidebar("chat");
+document.querySelector(".sidebar_option_changelog").onclick = () => switchSidebar("changelog");
 
 switchSidebar("info");
 
