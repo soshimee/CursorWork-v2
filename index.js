@@ -161,7 +161,6 @@ setInterval(() => {
 			if (!util.isDeepStrictEqual(socket.data.current[key], socket.data.previous[key])) {
 				socket.data.previous[key] = JSON.parse(JSON.stringify(socket.data.current[key]));
 				data[key] = socket.data.current[key];
-				console.log(socket.data.current[key]);
 			}
 		}
 		if (Object.keys(data).length > 0) io.to("main").emit("cursor data", socket.id, data);
