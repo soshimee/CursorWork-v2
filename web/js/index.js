@@ -104,8 +104,8 @@ setInterval(() => {
 }, 100);
 
 document.querySelector(".upgrade_button").onclick = () => {
-	socket.emit("upgrade storage", parseInt(document.querySelector(".storage_upgrade").value));
-	socket.emit("upgrade power", parseInt(document.querySelector(".power_upgrade").value));
+	socket.emit("upgrade storage", parseFormattedInt(document.querySelector(".storage_upgrade").value));
+	socket.emit("upgrade power", parseFormattedInt(document.querySelector(".power_upgrade").value));
 };
 
 document.querySelector(".login").onclick = () => {
@@ -160,4 +160,12 @@ function formatNumber(number, i) {
 	if (number === Infinity) return "Infinity";
 	if (number >= 1000 || number <= -1000) return formatNumber(Math.floor(number / 1000), ++i);
 	else return number + (i !== -1 ? suffixes[i] : "");
+}
+
+function parseFormattedInt(string) {
+	const suffixes = ["k", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc", "Ud", "Dd", "Td", "Qad", "Qid", "Sxd", "Spd", "Ocd", "Nod", "Vg", "Uvg", "Dvg", "Tvg", "Qavg", "Qivg", "Sxvg", "Spvg", "Ocvg", "Novg", "Tg", "Utg", "Dtg", "Ttg", "Qatg", "Qitg", "Sxtg", "Sptg", "Octg", "Notg", "Qag", "Uqag", "Dqag", "Tqag", "Qaqag", "Qiqag", "Sxqag", "Spqag", "Ocqag", "Noqag", "Qig", "UQig", "DQig", "TQig", "QaQig", "QiQig", "SxQig", "SpQig", "OcQig", "NoQig", "Sxg", "USxg", "DSxg", "TSxg", "QaSxg", "QiSxg", "SxSxg", "SpSxg", "OcSxg", "NoSxg", "Spg", "USpg", "DSpg", "TSpg", "QaSpg", "QiSpg", "SxSpg", "SpSpg", "OcSpg", "NoSpg", "Ocg", "UOcg", "DOcg", "TOcg", "QaOcg", "QiOcg", "SxOcg", "SpOcg", "OcOcg", "NoOcg", "Nog", "UNog", "DNog", "TNog", "QaNog", "QiNog", "SxNog", "SpNog", "OcNog", "NoNog", "C", "Uc"];
+	const number = parseInt(string.replace(/(\d+).+/, "$1"));
+	const unit = string.replace(/\d+(.+)/, "$1");
+	const i = suffixes.indexOf(unit) + 1;
+	return 1000 ** i * number;
 }

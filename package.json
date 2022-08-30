@@ -1,6 +1,6 @@
 {
 	"name": "cursorwork",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "The successor to CursorWork classic and v1",
 	"main": "index.js",
 	"scripts": {
